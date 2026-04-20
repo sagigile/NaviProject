@@ -96,7 +96,7 @@ def ecef_to_lla(x, y, z):
 
 
 if __name__ == "__main__":
-    print(f"--- 🛰️ ג'רוויס מפיק את המסלול הסופי ---")
+    print(f"Produces the final track")
     obs = gr.load(OBS_FILE)
     nav = gr.load(NAV_FILE, use=['G', 'E'])
 
