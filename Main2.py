@@ -426,7 +426,7 @@ def earth_rotation_correction(pos: np.ndarray, travel_time: float) -> np.ndarray
     return rot @ pos
 
 
-# The function converts three-dimensional Earth coordinates into latitude, longitude, and altitude
+# The function converts three-dimensional Earth coordinates of the receiver into latitude, longitude, and altitude
 def ecef_to_lla(x: float, y: float, z: float) -> Tuple[float, float, float]:
     lon = math.atan2(y, x)
     p = math.hypot(x, y)
@@ -458,8 +458,8 @@ def ecef_to_enu_matrix(lat_deg: float, lon_deg: float) -> np.ndarray:
     )
 
 
+# The function calculates how high the satellite is above the receiver’s horizon, in order to use this for estimating the measurement quality
 def satellite_elevation_deg(rx_pos_ecef: np.ndarray, sat_pos_ecef: np.ndarray) -> float:
-    """Compute satellite elevation above the receiver horizon."""
     if np.linalg.norm(rx_pos_ecef) < 1.0:
         return 30.0
     lat_deg, lon_deg, _ = ecef_to_lla(rx_pos_ecef[0], rx_pos_ecef[1], rx_pos_ecef[2])
@@ -471,27 +471,27 @@ def satellite_elevation_deg(rx_pos_ecef: np.ndarray, sat_pos_ecef: np.ndarray) -
     return math.degrees(math.atan2(up, horiz))
 
 
+# The function assigns weights so that satellites high in the sky are trusted more, and satellites low near the horizon are trusted less
 def elevation_weight(elev_deg: float) -> float:
-    """Assign a larger weight to satellites higher above the horizon."""
     elev = max(elev_deg, 5.0)
     sin_el = math.sin(math.radians(elev))
     return max(0.05, sin_el * sin_el)
 
 
+# The function assigns weights based on the size of the measurement error, so that a problematic measurement does not ruin the solution
 def robust_residual_weight(residual_m: float, scale_m: float = 15.0) -> float:
-    """Reduce the impact of measurements with large residuals."""
     a = abs(residual_m)
     if a <= scale_m:
         return 1.0
     return scale_m / a
 
 
+# The function builds all the data needed for a Least Squares iteration: the predicted measurement, residual, geometry matrix, and weight for each satellite
 def _build_measurement_model(
     t_rx: datetime,
     sat_subset: List[Tuple[str, float, BroadcastEphemeris]],
     state: np.ndarray,
 ) -> List[dict]:
-    """Build the geometry, residuals, and weights for one LS iteration."""
     rx_pos = state[:3]
     rows: List[dict] = []
 
@@ -535,14 +535,15 @@ def _build_measurement_model(
 
     return rows
 
-
+#
+# The function solves the receiver’s position and clock bias using Least Squares iterations, while giving higher weight to more reliable measurements
+#
 def weighted_least_squares(
     t_rx: datetime,
     sat_subset: List[Tuple[str, float, BroadcastEphemeris]],
     x0: Optional[np.ndarray],
-    max_iter: int = 10,
+    max_iter: int = 15,
 ) -> Optional[Tuple[np.ndarray, List[dict]]]:
-    """Solve receiver position with elevation-weighted iterative least squares."""
     state = np.array(x0 if x0 is not None else [0.0, 0.0, 0.0, 0.0], dtype=float)
     last_rows: List[dict] = []
 
@@ -582,13 +583,14 @@ def weighted_least_squares(
         return None
     return state, final_rows
 
-
+#
+# The function solves the position for one time point, selects suitable measurements, runs Least Squares, and if there is a very unusual measurement, it removes it and tries again
+#
 def solve_epoch_position(
     epoch: dict,
     nav: Dict[str, List[BroadcastEphemeris]],
     x0: Optional[np.ndarray] = None,
 ) -> Optional[dict]:
-    """Solve one epoch and prune only clearly bad measurements."""
     t_rx = epoch["time"]
     sat_candidates: List[Tuple[str, float, BroadcastEphemeris]] = []
 
@@ -654,8 +656,8 @@ def solve_epoch_position(
     return best_solution
 
 
+# The function adds both geographic coordinates and speed relative to the previous point to each position point
 def add_lla_and_velocity(df: pd.DataFrame) -> pd.DataFrame:
-    """Add geographic coordinates and speed to the output table."""
     out = df.copy()
     lla = out.apply(lambda r: ecef_to_lla(r["x"], r["y"], r["z"]), axis=1)
     out[["lat_deg", "lon_deg", "alt_m"]] = pd.DataFrame(lla.tolist(), index=out.index)
@@ -674,8 +676,9 @@ def add_lla_and_velocity(df: pd.DataFrame) -> pd.DataFrame:
     return out
 
 
+# The function filters unreliable points, fills gaps, smooths the route, and prepares a clean table for display and export
 def clean_track(df: pd.DataFrame) -> pd.DataFrame:
-    """Filter outliers and smooth the visible track for KML export."""
+    # Marks which points look reliable based on their position on Earth, error, and number of satellites
     out = df.copy().sort_values("time").reset_index(drop=True)
     out["ecef_radius_m"] = np.sqrt(out["x"] ** 2 + out["y"] ** 2 + out["z"] ** 2)
 
@@ -685,14 +688,14 @@ def clean_track(df: pd.DataFrame) -> pd.DataFrame:
         & (out["worst_residual_m"] < 95.0)
         & (out["num_sats"] >= 5)
     )
-
+    # Unreliable points are replaced with estimated values, and then the route goes through an initial median smoothing
     work = out[["time", "x", "y", "z"]].copy()
     for col in ["x", "y", "z"]:
         work.loc[~valid, col] = np.nan
         work[col] = work[col].interpolate(limit_direction="both")
         work[col] = work[col].rolling(7, center=True, min_periods=1).median()
 
-    # Replace points that drift too far from the local path center.
+    # This part identifies points that jump far away from the route and replaces them with a smoother local value
     for window, dist_thr, jump_thr in [(9, 50.0, 75.0), (15, 38.0, 60.0), (21, 30.0, 48.0)]:
         med = pd.DataFrame(index=work.index)
         for col in ["x", "y", "z"]:
@@ -706,12 +709,12 @@ def clean_track(df: pd.DataFrame) -> pd.DataFrame:
         for col in ["x", "y", "z"]:
             work.loc[bad, col] = med.loc[bad, col]
 
-    # Apply strong but smooth filtering to the visible path.
+    # This part strongly smooths the route so that the KML looks clear and does not jump
     for col in ["x", "y", "z"]:
         work[col] = work[col].ewm(span=9, adjust=False).mean()
         work[col] = work[col].rolling(9, center=True, min_periods=1).mean()
         work[col] = work[col].rolling(5, center=True, min_periods=1).mean()
-
+    # Create new table
     cleaned = pd.DataFrame(
         {
             "time": out["time"],
@@ -744,8 +747,8 @@ def clean_track(df: pd.DataFrame) -> pd.DataFrame:
     return cleaned
 
 
+# The function creates a KML file with the route points and a continuous line connecting them
 def write_kml_points(df: pd.DataFrame, path: str | Path) -> None:
-    """Write a KML with one point per second and one track line."""
     path = Path(path)
     point_blocks = []
     for i, row in df.reset_index(drop=True).iterrows():
@@ -789,6 +792,7 @@ def write_kml_points(df: pd.DataFrame, path: str | Path) -> None:
     path.write_text(kml_text, encoding="utf-8")
 
 
+# The function runs the whole pipeline: loading the data, solving the position for each time point, saving the raw CSV, cleaning the route, saving the clean CSV, and creating the KML file
 def run_pipeline(
     obs_file: Path,
     nav_file: Path,
@@ -796,7 +800,6 @@ def run_pipeline(
     output_csv: Path,
     output_kml: Path,
 ) -> Tuple[pd.DataFrame, pd.DataFrame]:
-    """Run the full offline GNSS solution pipeline."""
     print(f"Loading NAV: {nav_file}")
     nav = parse_nav_rinex(nav_file)
     print(f"Loaded navigation records for {len(nav)} satellites")
@@ -847,8 +850,8 @@ def run_pipeline(
     return raw_df, clean_df
 
 
+# The function checks that the input files exist, runs the whole pipeline, and prints the location of the output files and the number of points
 def main() -> None:
-    """Locate the input files next to the script and run the solver."""
     print(f"Using OBS: {OBS_PATH}")
     print(f"Using NAV: {NAV_PATH}")
 
