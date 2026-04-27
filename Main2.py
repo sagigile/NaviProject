@@ -1,25 +1,25 @@
 from __future__ import annotations
 
-import math
-import re
-from dataclasses import dataclass
-from datetime import datetime, timedelta, timezone
-from pathlib import Path
+import math # Used for math calculations
+import re # Used to identify numbers inside text lines of RINEX files
+from dataclasses import dataclass # Allows creating a convenient data class for the satellite navigation data
+from datetime import datetime, timedelta, timezone # Used for working with GPS and UTC times
+from pathlib import Path # Allows working cleanly with file paths
 from typing import Dict, List, Optional, Tuple
-import xml.etree.ElementTree as ET
 
-import numpy as np
-import pandas as pd
+import numpy as np # Used for vector and matrix calculations
+import pandas as pd # Used for data tables and CSV files
 
-# Input files are expected in the same folder as this script.
+# Input files
 OBS_FILENAME = "my_data_2.obs"
 NAV_FILENAME = "samsung_nav.nav.rnx"
 
-# Output files are written to the same folder as this script.
+# Output files
 RAW_CSV_FILENAME = "gnss_solution_raw_weighted2.csv"
 CLEAN_CSV_FILENAME = "gnss_solution_clean_weighted2.csv"
 CLEAN_KML_FILENAME = "gnss_solution_clean_weighted2.kml"
 
+# Defines the path from which the code reads the OBS and NAV files, and where it saves the CSV and KML results
 SCRIPT_DIR = Path(__file__).resolve().parent
 OBS_PATH = SCRIPT_DIR / OBS_FILENAME
 NAV_PATH = SCRIPT_DIR / NAV_FILENAME
@@ -28,22 +28,23 @@ CLEAN_CSV_PATH = SCRIPT_DIR / CLEAN_CSV_FILENAME
 CLEAN_KML_PATH = SCRIPT_DIR / CLEAN_KML_FILENAME
 
 # Physical constants.
-C = 299792458.0
-MU = 3.986005e14
-OMEGA_E_DOT = 7.2921151467e-5
-F_REL = -4.442807633e-10
+C = 299792458.0 # The speed of light in meters per second
+MU = 3.986005e14 # Earth’s gravitational constant, used to calculate the satellite’s orbit
+OMEGA_E_DOT = 7.2921151467e-5 # Earth’s rotation rate
+F_REL = -4.442807633e-10 # Constant for the relativistic correction of the satellite clock
 
 # WGS84 constants.
-WGS84_A = 6378137.0
-WGS84_F = 1.0 / 298.257223563
-WGS84_B = WGS84_A * (1.0 - WGS84_F)
+WGS84_A = 6378137.0 # The radius at the equator
+WGS84_F = 1.0 / 298.257223563 # Earth’s flattening
+WGS84_B = WGS84_A * (1.0 - WGS84_F) # The polar radius
+# Used to convert between the ECEF coordinate system and latitude, longitude, and altitude
 WGS84_E2 = WGS84_F * (2.0 - WGS84_F)
 WGS84_EP2 = (WGS84_A * WGS84_A - WGS84_B * WGS84_B) / (WGS84_B * WGS84_B)
 
-# RINEX float pattern.
+# RINEX float pattern, Allows the code to extract numbers from RINEX lines
 FLOAT_RE = re.compile(r"[+-]?(?:\d+\.\d*|\d*\.\d+|\d+)(?:[EeDd][+-]?\d+)?")
 
-
+# The class stores all the data needed from one navigation record to calculate a satellite’s position and clock
 @dataclass
 class BroadcastEphemeris:
     system: str
@@ -73,6 +74,7 @@ class BroadcastEphemeris:
     tgd: float
 
 
+# The function extracts all the numbers from a RINEX line and returns them as a list of floats
 def _parse_float_fields(line: str) -> List[float]:
     """Extract all numeric fields from one RINEX line."""
     values: List[float] = []
@@ -84,6 +86,7 @@ def _parse_float_fields(line: str) -> List[float]:
     return values
 
 
+# The function reads the navigation file, extracts orbit and clock records for each satellite, creates a BroadcastEphemeris object for each one, and stores them in a dictionary by satellite ID
 def parse_nav_rinex(nav_path: str | Path) -> Dict[str, List[BroadcastEphemeris]]:
     """Parse broadcast ephemeris from a navigation RINEX file."""
     nav_path = Path(nav_path)
@@ -161,6 +164,7 @@ def parse_nav_rinex(nav_path: str | Path) -> Dict[str, List[BroadcastEphemeris]]
     return eph
 
 
+# The function receives a single observation field from an OBS file and returns the measurement value as a number, or None if there is no valid value
 def _parse_obs_field(field: str):
     # RINEX observation field: 16 chars = value(14) + LLI(1) + SSI(1)
     raw = field[:14].strip()
@@ -171,17 +175,14 @@ def _parse_obs_field(field: str):
     except ValueError:
         return None
 
-
+# # Reads RINEX OBS file and returns epochs with per-satellite observations
 def parse_obs_rinex(obs_path: Path) -> list[dict]:
-    # Reads RINEX OBS file and returns epochs with per-satellite observations.
     lines = Path(obs_path).read_text(encoding="utf-8", errors="ignore").splitlines()
 
     obs_types_by_sys = {}
     i = 0
 
-    # -----------------------------
-    # Parse header
-    # -----------------------------
+   # Reads from the header which observation types exist for each satellite system
     while i < len(lines):
         line = lines[i]
 
@@ -218,9 +219,7 @@ def parse_obs_rinex(obs_path: Path) -> list[dict]:
 
     epochs = []
 
-    # -----------------------------
     # Parse body
-    # -----------------------------
     while i < len(lines):
         line = lines[i]
 
@@ -320,20 +319,19 @@ def parse_obs_rinex(obs_path: Path) -> list[dict]:
 
         else:
             i += 1
-
+    # Returns a list of measurement times, and for each measurement time it returns all the observations read for each GPS/Galileo satellite at that moment
     return epochs
 
+# The function converts regular time to GPS representation: the GPS week number and the seconds from the start of the week
 def gps_week_seconds(dt: datetime) -> Tuple[int, float]:
-    """Convert UTC datetime to GPS week and seconds-of-week."""
     gps0 = datetime(1980, 1, 6, tzinfo=timezone.utc)
     delta = (dt - gps0).total_seconds()
     week = int(delta // 604800)
     sow = delta - week * 604800
     return week, sow
 
-
+# The function corrects GPS time differences around week boundaries so that the difference stays within a reasonable range
 def wrap_gps_time(seconds: float) -> float:
-    """Wrap time difference into the standard GPS half-week interval."""
     while seconds > 302400.0:
         seconds -= 604800.0
     while seconds < -302400.0:
@@ -341,8 +339,8 @@ def wrap_gps_time(seconds: float) -> float:
     return seconds
 
 
+# The function solves Kepler’s equation to find the satellite’s position along the elliptical orbit
 def solve_kepler(mk: float, e: float, tol: float = 1e-12, max_iter: int = 50) -> float:
-    """Solve Kepler's equation with Newton iterations."""
     ek = mk
     for _ in range(max_iter):
         denom = 1.0 - e * math.cos(ek)
@@ -355,15 +353,14 @@ def solve_kepler(mk: float, e: float, tol: float = 1e-12, max_iter: int = 50) ->
     return ek
 
 
+# The function selects the most suitable navigation record for the satellite based on the time closest to the measurement time
 def closest_ephemeris(eph_list: List[BroadcastEphemeris], t_rx: datetime) -> Optional[BroadcastEphemeris]:
-    """Pick the navigation record closest in time to the epoch."""
     if not eph_list:
         return None
     return min(eph_list, key=lambda item: abs((t_rx - item.toc).total_seconds()))
 
-
+# The function selects the best pseudorange measurement for a satellite, according to a priority order of observation types
 def choose_best_pseudorange(system: str, obs_map: Dict[str, Optional[float]]) -> Optional[float]:
-    """Select the best available pseudorange observable for a satellite."""
     candidate_map = {
         "G": ("C1C", "C1W", "C1X", "C1P", "C2W", "C2X", "C5Q", "C5X"),
         "E": ("C1C", "C1X", "C5Q", "C5X", "C7Q", "C7X", "C8Q", "C8X"),
@@ -376,8 +373,8 @@ def choose_best_pseudorange(system: str, obs_map: Dict[str, Optional[float]]) ->
     return None
 
 
+# The function calculates how much the satellite clock deviates at the transmission time, so the distance measurement can be corrected
 def satellite_clock_bias(ep: BroadcastEphemeris, tx_time: datetime) -> float:
-    """Compute the satellite clock correction in seconds."""
     _, sow_tx = gps_week_seconds(tx_time)
     tk = wrap_gps_time(sow_tx - ep.toe)
     a = ep.sqrt_a * ep.sqrt_a
@@ -390,8 +387,8 @@ def satellite_clock_bias(ep: BroadcastEphemeris, tx_time: datetime) -> float:
     return ep.af0 + ep.af1 * dt + ep.af2 * dt * dt + dtr - ep.tgd
 
 
+# The function calculates the satellite’s position in space at the transmission time, using its navigation data
 def satellite_position_ecef(ep: BroadcastEphemeris, tx_time: datetime) -> np.ndarray:
-    """Compute the broadcast satellite ECEF position at transmit time."""
     _, sow_tx = gps_week_seconds(tx_time)
     tk = wrap_gps_time(sow_tx - ep.toe)
     a = ep.sqrt_a * ep.sqrt_a
@@ -420,8 +417,8 @@ def satellite_position_ecef(ep: BroadcastEphemeris, tx_time: datetime) -> np.nda
     return np.array([xk, yk, zk], dtype=float)
 
 
+# The function corrects the satellite’s position according to Earth’s rotation during the time the signal travels from the satellite to the receiver
 def earth_rotation_correction(pos: np.ndarray, travel_time: float) -> np.ndarray:
-    """Compensate the satellite position for Earth rotation during signal travel."""
     angle = OMEGA_E_DOT * travel_time
     cos_a = math.cos(angle)
     sin_a = math.sin(angle)
@@ -429,8 +426,8 @@ def earth_rotation_correction(pos: np.ndarray, travel_time: float) -> np.ndarray
     return rot @ pos
 
 
+# The function converts three-dimensional Earth coordinates into latitude, longitude, and altitude
 def ecef_to_lla(x: float, y: float, z: float) -> Tuple[float, float, float]:
-    """Convert ECEF coordinates to latitude, longitude, and altitude."""
     lon = math.atan2(y, x)
     p = math.hypot(x, y)
     th = math.atan2(WGS84_A * z, WGS84_B * p)
@@ -443,8 +440,8 @@ def ecef_to_lla(x: float, y: float, z: float) -> Tuple[float, float, float]:
     return math.degrees(lat), math.degrees(lon), alt
 
 
+# The function builds a matrix that converts a global direction in ECEF into a local direction around the receiver
 def ecef_to_enu_matrix(lat_deg: float, lon_deg: float) -> np.ndarray:
-    """Build the rotation matrix from ECEF to local ENU coordinates."""
     lat = math.radians(lat_deg)
     lon = math.radians(lon_deg)
     sin_lat = math.sin(lat)
