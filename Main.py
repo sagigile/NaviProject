@@ -14,7 +14,7 @@ except ImportError:
     import simplekml
 
 # Final definitions
-OBS_FILE = 'my_data.obs'
+OBS_FILE = 'my_data_2.obs'
 NAV_FILE = 'samsung_nav.nav.rnx'
 C = 299792458.0
 SMOOTH_WINDOW = 7  # Window for removing spikes
@@ -152,6 +152,6 @@ if __name__ == "__main__":
     ls = kml.newlinestring(name="Final Smooth Route") #KML
     ls.coords = coords_for_kml
     ls.style.linestyle.color, ls.style.linestyle.width = simplekml.Color.blue, 4
-    kml.save('output_path.kml')
+    kml.save('output_path_2.kml')
 
     print(f"120 clean points were saved in the CSV and KML files.")
