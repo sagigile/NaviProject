@@ -722,6 +722,7 @@ def clean_track(df: pd.DataFrame) -> pd.DataFrame:
             "y": work["y"],
             "z": work["z"],
             "num_sats": out["num_sats"],
+            "satellites": out["satellites"],
             "rms_residual_m": out["rms_residual_m"],
             "worst_residual_m": out["worst_residual_m"],
             "min_elevation_deg": out["min_elevation_deg"],
@@ -818,7 +819,7 @@ def run_pipeline(
             solutions.append(sol)
 
         if idx % 50 == 0:
-            print(f"Processed {idx}/{len(epochs)} epochs, valid solutions: {len(solutions)}")
+            print(f"Processed {idx}/{len(epochs)} epochs")
 
     if not solutions:
         raise RuntimeError("No valid GNSS position solutions were produced.")
@@ -842,10 +843,46 @@ def run_pipeline(
     raw_df["time"] = pd.to_datetime(raw_df["time"], utc=True)
     raw_df = add_lla_and_velocity(raw_df)
     raw_df["utc_time"] = raw_df["time"].dt.strftime("%Y-%m-%d %H:%M:%S")
-    raw_df.to_csv(raw_csv, index=False)
 
     clean_df = clean_track(raw_df)
-    clean_df.to_csv(output_csv, index=False)
+    raw_df["kept_measurement"] = clean_df["kept_measurement"].values
+
+    raw_columns = [
+        "time",
+        "x",
+        "y",
+        "z",
+        "velocity_mps",
+        "num_sats",
+        "satellites",
+        "rms_residual_m",
+        "lat_deg",
+        "lon_deg",
+        "alt_m",
+        "kept_measurement",
+    ]
+    clean_columns = [
+        "time",
+        "x",
+        "y",
+        "z",
+        "velocity_mps",
+        "num_sats",
+        "satellites",
+        "rms_residual_m",
+        "lat_deg",
+        "lon_deg",
+        "alt_m",
+    ]
+
+    # Save only the columns requested for each CSV file.
+    raw_df[raw_columns].to_csv(raw_csv, index=False)
+
+    # The clean CSV contains only measurements that passed the filtering conditions.
+    clean_export_df = clean_df.loc[clean_df["kept_measurement"], clean_columns].copy()
+    clean_export_df.to_csv(output_csv, index=False)
+
+    # Keep KML based on the full cleaned route, not on the filtered CSV export.
     write_kml_points(clean_df, output_kml)
     return raw_df, clean_df
 
@@ -872,8 +909,6 @@ def main() -> None:
     print(f"Raw CSV:   {RAW_CSV_PATH}")
     print(f"Clean CSV: {CLEAN_CSV_PATH}")
     print(f"KML:       {CLEAN_KML_PATH}")
-    print(f"Raw points:   {len(raw_df)}")
-    print(f"Clean points: {len(clean_df)}")
 
 
 if __name__ == "__main__":
