@@ -1,0 +1,968 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document>
+    <name>Clean GNSS Track</name>
+
+    <Style id="route_line">
+        <LineStyle>
+            <color>ff0000ff</color>
+            <width>4</width>
+        </LineStyle>
+    </Style>
+
+    <Style id="red_point">
+        <IconStyle>
+            <scale>0.85</scale>
+            <Icon>
+                <href>http://maps.google.com/mapfiles/kml/paddle/red-circle.png</href>
+            </Icon>
+        </IconStyle>
+        <LabelStyle>
+            <scale>0</scale>
+        </LabelStyle>
+    </Style>
+
+    <Placemark>
+        <name>Clean route</name>
+        <styleUrl>#route_line</styleUrl>
+        <LineString>
+            <tessellate>1</tessellate>
+            <altitudeMode>clampToGround</altitudeMode>
+            <coordinates>34.81321713,32.16874146,61.609 34.81320613,32.16874478,61.767 34.81319157,32.16874895,61.590 34.81316902,32.16875564,60.894 34.81314089,32.16876462,59.872 34.81310097,32.16876782,61.238 34.81303677,32.16877966,62.101 34.81276839,32.16883256,68.185 34.81265024,32.16885928,69.741 34.81253568,32.16888567,71.343 34.81222355,32.16897512,74.946 34.81214414,32.16901417,76.310 34.81208995,32.16906301,74.534 34.81206286,32.16911441,71.734 34.81205152,32.16919411,70.298 34.81205877,32.16926894,67.420 34.81207822,32.16936153,65.587 34.81212480,32.16945778,63.771 34.81217844,32.16956677,62.064 34.81224196,32.16969114,60.197 34.81230899,32.16981758,58.540 34.81237157,32.16996352,58.699 34.81243764,32.17010454,60.093 34.81249720,32.17025325,63.066 34.81254514,32.17041136,68.556 34.81259522,32.17055969,72.689 34.81264000,32.17070772,77.533 34.81269050,32.17084452,79.380 34.81274311,32.17099429,78.932 34.81282880,32.17129867,80.382 34.81289390,32.17156920,81.411 34.81292183,32.17170769,81.118 34.81294553,32.17183642,80.248 34.81297001,32.17194947,77.966 34.81298675,32.17214554,72.580 34.81296741,32.17223922,70.975 34.81290304,32.17236495,73.367 34.81284897,32.17241186,75.023 34.81277796,32.17245399,76.606 34.81270031,32.17249151,78.083 34.81261863,32.17250948,78.838 34.81253937,32.17251735,79.075 34.81245576,32.17251233,79.099 34.81236074,32.17248964,80.814 34.81227230,32.17245764,82.528 34.81212850,32.17235480,84.857 34.81205574,32.17229114,85.039 34.81199949,32.17221270,82.749 34.81195654,32.17213138,80.167 34.81191521,32.17203403,77.038 34.81187312,32.17193256,73.781 34.81182964,32.17182503,70.322 34.81178097,32.17172048,68.109 34.81174754,32.17161731,63.608 34.81170849,32.17150683,59.630 34.81166002,32.17139309,56.830 34.81160908,32.17127849,54.096 34.81155862,32.17115530,50.905 34.81150480,32.17103984,49.602 34.81145076,32.17091172,48.359 34.81139436,32.17079045,47.989 34.81132564,32.17066087,49.571 34.81124910,32.17053641,52.765 34.81117724,32.17040543,54.755 34.81110840,32.17027496,56.294 34.81104363,32.17014325,57.221 34.81092673,32.16987733,57.349 34.81085890,32.16974502,60.048 34.81075228,32.16949448,64.337 34.81070854,32.16937207,65.837 34.81068223,32.16926288,65.154 34.81069035,32.16907250,61.137 34.81072149,32.16900441,59.833 34.81077750,32.16894651,59.921 34.81083924,32.16889771,60.847 34.81092860,32.16886483,60.881 34.81103889,32.16884644,59.780 34.81115331,32.16883336,59.165 34.81126582,32.16882724,58.888 34.81138143,32.16882920,59.338 34.81152192,32.16882902,60.347 34.81166074,32.16882970,61.139 34.81177901,32.16883722,61.835 34.81190319,32.16883438,62.841 34.81201892,32.16883973,62.402 34.81213576,32.16884298,61.761 34.81236632,32.16883054,61.307 34.81248512,32.16881885,60.779 34.81260638,32.16881137,60.735 34.81273173,32.16880783,59.996 34.81283147,32.16880567,58.600 34.81293052,32.16880357,57.256 34.81302108,32.16879897,57.042 34.81315576,32.16879691,57.791 34.81320816,32.16879740,58.484 34.81324118,32.16880254,58.664 34.81326681,32.16880494,59.325 34.81327928,32.16881558,59.802 34.81328888,32.16881983,59.877 34.81329235,32.16882263,60.039 34.81329350,32.16881859,59.902 34.81329590,32.16881302,59.755 34.81330038,32.16880501,58.969 34.81329933,32.16879021,58.122 34.81330119,32.16877457,57.711 34.81330600,32.16875657,57.704 34.81331014,32.16873536,57.421 34.81331013,32.16870553,57.202 34.81330480,32.16867370,57.132 34.81329946,32.16864240,57.445 34.81329254,32.16860958,58.026 34.81328436,32.16857344,58.406 34.81327931,32.16855614,59.016 34.81327382,32.16853568,59.863 34.81327021,32.16851785,60.377 34.81326578,32.16849658,60.746</coordinates>
+        </LineString>
+    </Placemark>
+
+    <Folder>
+        <name>Clean CSV points</name>
+        
+        <Placemark>
+            <name>Point 1</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:18:15<br/><b>Satellites:</b> E02,E06,E10,E25<br/><b>RMS residual:</b> 2.634178031930877e-09<br/><b>PDOP:</b> 5.671197484471727<br/><b>GDOP:</b> 6.393147943993001<br/><b>Velocity:</b> nan m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81321713,32.16874146,61.609</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 2</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:18:17<br/><b>Satellites:</b> E02,E06,E10,E12,E36<br/><b>RMS residual:</b> 0.5716162362863912<br/><b>PDOP:</b> 3.222805208111394<br/><b>GDOP:</b> 3.525046124501409<br/><b>Velocity:</b> 0.5557615169815197 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81320613,32.16874478,61.767</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 3</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:18:19<br/><b>Satellites:</b> E02,E06,E10,E36<br/><b>RMS residual:</b> 2.634178031930877e-09<br/><b>PDOP:</b> 4.693499006142426<br/><b>GDOP:</b> 5.36707432717019<br/><b>Velocity:</b> 0.7301289260026907 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81319157,32.16874895,61.590</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 4</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:18:21<br/><b>Satellites:</b> E02,E06,E10,E12,E36<br/><b>RMS residual:</b> 0.3187617152403106<br/><b>PDOP:</b> 3.2219744104539436<br/><b>GDOP:</b> 3.523727968927858<br/><b>Velocity:</b> 1.1785041927497582 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81316902,32.16875564,60.894</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 5</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:18:23<br/><b>Satellites:</b> E02,E06,E10,E12,E36<br/><b>RMS residual:</b> 2.139235070969956<br/><b>PDOP:</b> 3.2215633980241227<br/><b>GDOP:</b> 3.5230742518084024<br/><b>Velocity:</b> 1.5063395195679699 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81314089,32.16876462,59.872</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 6</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:18:25<br/><b>Satellites:</b> E02,E06,E10,E25,E36<br/><b>RMS residual:</b> 1.074225568115081<br/><b>PDOP:</b> 4.219200110649745<br/><b>GDOP:</b> 4.846224964138733<br/><b>Velocity:</b> 2.0106414825889196 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81310097,32.16876782,61.238</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 7</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:18:27<br/><b>Satellites:</b> E02,E06,E10,E25<br/><b>RMS residual:</b> 2.634178031930877e-09<br/><b>PDOP:</b> 5.64262160922284<br/><b>GDOP:</b> 6.3599665485809265<br/><b>Velocity:</b> 3.1278604949686506 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81303677,32.16877966,62.101</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 8</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:18:33<br/><b>Satellites:</b> E02,E06,E10,E25,E36<br/><b>RMS residual:</b> 1.027100188691988<br/><b>PDOP:</b> 4.212740605369461<br/><b>GDOP:</b> 4.838376337459274<br/><b>Velocity:</b> 5.066586871504092 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81276839,32.16883256,68.185</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 9</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:18:35<br/><b>Satellites:</b> E02,E06,E10,E25,E36<br/><b>RMS residual:</b> 0.6771575901744676<br/><b>PDOP:</b> 4.211130523525682<br/><b>GDOP:</b> 4.8364185044258<br/><b>Velocity:</b> 5.817790007394368 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81265024,32.16885928,69.741</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 10</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:18:37<br/><b>Satellites:</b> E02,E06,E10,E25<br/><b>RMS residual:</b> 1.862645149230957e-09<br/><b>PDOP:</b> 5.61915177433438<br/><b>GDOP:</b> 6.332711747665429<br/><b>Velocity:</b> 5.654202011572863 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81253568,32.16888567,71.343</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 11</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:18:43<br/><b>Satellites:</b> E02,E06,E10,E34<br/><b>RMS residual:</b> 0.0<br/><b>PDOP:</b> 8.291854032554069<br/><b>GDOP:</b> 8.97568038916492<br/><b>Velocity:</b> 4.699948169563744 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81222355,32.16897512,74.946</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 12</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:18:49<br/><b>Satellites:</b> E02,E06,E11,E36<br/><b>RMS residual:</b> 0.0<br/><b>PDOP:</b> 13.40991971507927<br/><b>GDOP:</b> 15.734505878517554<br/><b>Velocity:</b> 1.459844932459837 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81214414,32.16901417,76.310</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 13</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:18:51<br/><b>Satellites:</b> E02,E06,E10,E25<br/><b>RMS residual:</b> 2.634178031930877e-09<br/><b>PDOP:</b> 5.586796751235044<br/><b>GDOP:</b> 6.295135135135528<br/><b>Velocity:</b> 3.8279796379650826 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81208995,32.16906301,74.534</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 14</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:18:53<br/><b>Satellites:</b> E02,E06,E10,E25<br/><b>RMS residual:</b> 3.226196034939731e-09<br/><b>PDOP:</b> 5.582223796460783<br/><b>GDOP:</b> 6.289824742089585<br/><b>Velocity:</b> 3.4225068878896177 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81206286,32.16911441,71.734</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 15</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:18:55<br/><b>Satellites:</b> E02,E06,E10,E25<br/><b>RMS residual:</b> 2.634178031930877e-09<br/><b>PDOP:</b> 5.57765694802947<br/><b>GDOP:</b> 6.284519393683205<br/><b>Velocity:</b> 4.508997984977166 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81205152,32.16919411,70.298</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 16</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:18:57<br/><b>Satellites:</b> E02,E06,E10,E25,E36<br/><b>RMS residual:</b> 0.7930740630663773<br/><b>PDOP:</b> 4.193693391945069<br/><b>GDOP:</b> 4.815215275137103<br/><b>Velocity:</b> 4.404661446203825 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81205877,32.16926894,67.420</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 17</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:18:59<br/><b>Satellites:</b> E02,E06,E10,E25<br/><b>RMS residual:</b> 0.0<br/><b>PDOP:</b> 5.568572828290747<br/><b>GDOP:</b> 6.273971042528767<br/><b>Velocity:</b> 5.294564188996822 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81207822,32.16936153,65.587</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 18</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:19:01<br/><b>Satellites:</b> E02,E06,E10,E25<br/><b>RMS residual:</b> 2.634178031930877e-09<br/><b>PDOP:</b> 5.564046067985898<br/><b>GDOP:</b> 6.268713701348786<br/><b>Velocity:</b> 5.842073090204898 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81212480,32.16945778,63.771</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 19</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:19:03<br/><b>Satellites:</b> E02,E06,E10,E25<br/><b>RMS residual:</b> 0.0<br/><b>PDOP:</b> 5.55953072799939<br/><b>GDOP:</b> 6.263469904537843<br/><b>Velocity:</b> 6.606740967430956 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81217844,32.16956677,62.064</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 20</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:19:05<br/><b>Satellites:</b> E02,E06,E10,E25<br/><b>RMS residual:</b> 1.862645149230957e-09<br/><b>PDOP:</b> 5.55502456008155<br/><b>GDOP:</b> 6.258234888872136<br/><b>Velocity:</b> 7.575866155118677 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81224196,32.16969114,60.197</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 21</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:19:07<br/><b>Satellites:</b> E02,E06,E10,E25<br/><b>RMS residual:</b> 1.862645149230957e-09<br/><b>PDOP:</b> 5.550532015749977<br/><b>GDOP:</b> 6.253017148486259<br/><b>Velocity:</b> 7.7347926688739355 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81230899,32.16981758,58.540</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 22</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:19:09<br/><b>Satellites:</b> E02,E06,E10,E25,E36<br/><b>RMS residual:</b> 5.029193579424645<br/><b>PDOP:</b> 4.18434933420163<br/><b>GDOP:</b> 4.803843984264793<br/><b>Velocity:</b> 8.613208762244573 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81237157,32.16996352,58.699</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 23</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:19:11<br/><b>Satellites:</b> E02,E06,E10,E25<br/><b>RMS residual:</b> 2.634178031930877e-09<br/><b>PDOP:</b> 5.541579692882698<br/><b>GDOP:</b> 6.242618161131557<br/><b>Velocity:</b> 8.445818978582565 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81243764,32.17010454,60.093</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 24</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:19:13<br/><b>Satellites:</b> E02,E06,E10,E12,E34<br/><b>RMS residual:</b> 8.695311653255652<br/><b>PDOP:</b> 4.65773843615231<br/><b>GDOP:</b> 4.869173643241582<br/><b>Velocity:</b> 8.836712727438849 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81249720,32.17025325,63.066</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 25</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:19:15<br/><b>Satellites:</b> E02,E06,E10,E25<br/><b>RMS residual:</b> 1.862645149230957e-09<br/><b>PDOP:</b> 5.53267434665381<br/><b>GDOP:</b> 6.232273858467803<br/><b>Velocity:</b> 9.460180096377528 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81254514,32.17041136,68.556</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 26</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:19:17<br/><b>Satellites:</b> E02,E06,E10,E25<br/><b>RMS residual:</b> 1.862645149230957e-09<br/><b>PDOP:</b> 5.52824254076855<br/><b>GDOP:</b> 6.227127093027463<br/><b>Velocity:</b> 8.802598881605904 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81259522,32.17055969,72.689</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 27</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:19:19<br/><b>Satellites:</b> E02,E06,E10,E12,E36<br/><b>RMS residual:</b> 1.2252017963250352<br/><b>PDOP:</b> 3.2106234978973447<br/><b>GDOP:</b> 3.5054175863624715<br/><b>Velocity:</b> 8.814129282988883 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81264000,32.17070772,77.533</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 28</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:19:21<br/><b>Satellites:</b> E02,E06,E10,E12,E36<br/><b>RMS residual:</b> 1.4795181280585408<br/><b>PDOP:</b> 3.210257025398732<br/><b>GDOP:</b> 3.5048152882638575<br/><b>Velocity:</b> 8.003774878605602 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81269050,32.17084452,79.380</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 29</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:19:23<br/><b>Satellites:</b> E04,E09,E11,E36<br/><b>RMS residual:</b> 1.862645149230957e-09<br/><b>PDOP:</b> 10.409691272548303<br/><b>GDOP:</b> 12.782810358156963<br/><b>Velocity:</b> 8.669776206276037 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81274311,32.17099429,78.932</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 30</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:19:27<br/><b>Satellites:</b> E02,E05,E09,E11<br/><b>RMS residual:</b> 1.862645149230957e-09<br/><b>PDOP:</b> 5.3822539965508795<br/><b>GDOP:</b> 6.183372045476341<br/><b>Velocity:</b> 8.282502540873711 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81282880,32.17129867,80.382</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 31</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:19:31<br/><b>Satellites:</b> E02,E05,E09,E11,E34<br/><b>RMS residual:</b> 6.147016962678801<br/><b>PDOP:</b> 3.6774224873994554<br/><b>GDOP:</b> 4.123508094371905<br/><b>Velocity:</b> 7.184725173369269 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81289390,32.17156920,81.411</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 32</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:19:33<br/><b>Satellites:</b> E02,E06,E10,E25<br/><b>RMS residual:</b> 2.634178031930877e-09<br/><b>PDOP:</b> 5.493165493899596<br/><b>GDOP:</b> 6.186378123279205<br/><b>Velocity:</b> 7.791989552987842 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81292183,32.17170769,81.118</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 33</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:19:35<br/><b>Satellites:</b> E02,E06,E10,E25<br/><b>RMS residual:</b> 1.862645149230957e-09<br/><b>PDOP:</b> 5.488826218716873<br/><b>GDOP:</b> 6.181335223945134<br/><b>Velocity:</b> 7.237437205054167 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81294553,32.17183642,80.248</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 34</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:19:37<br/><b>Satellites:</b> E02,E06,E10,E25<br/><b>RMS residual:</b> 3.725290298461914e-09<br/><b>PDOP:</b> 5.48450382527067<br/><b>GDOP:</b> 6.1763137668069685<br/><b>Velocity:</b> 6.475189169481272 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81297001,32.17194947,77.966</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 35</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:19:41<br/><b>Satellites:</b> E02,E06,E10,E25<br/><b>RMS residual:</b> 0.0<br/><b>PDOP:</b> 5.475893096570672<br/><b>GDOP:</b> 6.16631047723345<br/><b>Velocity:</b> 5.557025420502403 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81298675,32.17214554,72.580</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 36</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:19:43<br/><b>Satellites:</b> E02,E05,E09,E11,E36<br/><b>RMS residual:</b> 1.5613163314006298<br/><b>PDOP:</b> 5.224751759097764<br/><b>GDOP:</b> 6.031588944978608<br/><b>Velocity:</b> 5.334107818942639 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81296741,32.17223922,70.975</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 37</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:19:47<br/><b>Satellites:</b> E02,E05,E09,E11,E25,E36<br/><b>RMS residual:</b> 3.8848454420239578<br/><b>PDOP:</b> 4.38788886381224<br/><b>GDOP:</b> 5.1123490661216096<br/><b>Velocity:</b> 3.317564764653459 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81290304,32.17236495,73.367</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 38</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:19:49<br/><b>Satellites:</b> E02,E06,E10,E25,E36<br/><b>RMS residual:</b> 3.3297987947022514<br/><b>PDOP:</b> 4.154099163603923<br/><b>GDOP:</b> 4.766983836087525<br/><b>Velocity:</b> 3.735450240478954 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81284897,32.17241186,75.023</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 39</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:19:51<br/><b>Satellites:</b> E02,E06,E10,E25,E36<br/><b>RMS residual:</b> 5.210931954014221<br/><b>PDOP:</b> 4.152621549948143<br/><b>GDOP:</b> 4.7651809158379725<br/><b>Velocity:</b> 4.158820345990984 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81277796,32.17245399,76.606</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 40</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:19:53<br/><b>Satellites:</b> E02,E06,E10,E25,E36<br/><b>RMS residual:</b> 1.0499263966655468<br/><b>PDOP:</b> 4.151152264329754<br/><b>GDOP:</b> 4.763389073634713<br/><b>Velocity:</b> 4.275679245189866 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81270031,32.17249151,78.083</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 41</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:19:55<br/><b>Satellites:</b> E02,E05,E09,E11,E36<br/><b>RMS residual:</b> 8.4253261168023<br/><b>PDOP:</b> 5.223514270669188<br/><b>GDOP:</b> 6.031000871431548<br/><b>Velocity:</b> 3.9964035879832984 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81261863,32.17250948,78.838</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 42</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:19:57<br/><b>Satellites:</b> E02,E06,E10,E25,E36<br/><b>RMS residual:</b> 5.634310405533557<br/><b>PDOP:</b> 4.1482134654583716<br/><b>GDOP:</b> 4.759802568869775<br/><b>Velocity:</b> 3.7651038930294303 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81253937,32.17251735,79.075</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 43</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:19:59<br/><b>Satellites:</b> E02,E05,E09,E11,E25,E34<br/><b>RMS residual:</b> 8.965152803734828<br/><b>PDOP:</b> 3.082636968623691<br/><b>GDOP:</b> 3.4899384363742487<br/><b>Velocity:</b> 3.9526324188907735 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81245576,32.17251233,79.099</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 44</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:20:01<br/><b>Satellites:</b> E02,E06,E10,E12,E34<br/><b>RMS residual:</b> 3.4489654838965906<br/><b>PDOP:</b> 4.710340384427854<br/><b>GDOP:</b> 4.920949660094093<br/><b>Velocity:</b> 4.732680820536292 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81236074,32.17248964,80.814</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 45</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:20:03<br/><b>Satellites:</b> E02,E05,E09,E11,E34<br/><b>RMS residual:</b> 2.1007469633798004<br/><b>PDOP:</b> 3.6771395889779455<br/><b>GDOP:</b> 4.124067577426635<br/><b>Velocity:</b> 4.612476447322399 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81227230,32.17245764,82.528</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 46</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:20:07<br/><b>Satellites:</b> E02,E05,E09,E11,E25<br/><b>RMS residual:</b> 3.8422002465129994<br/><b>PDOP:</b> 4.48594317018414<br/><b>GDOP:</b> 5.205369267274521<br/><b>Velocity:</b> 4.664514028222137 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81212850,32.17235480,84.857</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 47</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:20:09<br/><b>Satellites:</b> E02,E05,E09,E11,E36<br/><b>RMS residual:</b> 4.450729189500359<br/><b>PDOP:</b> 5.222092056697009<br/><b>GDOP:</b> 6.030340071775344<br/><b>Velocity:</b> 4.9233754652390775 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81205574,32.17229114,85.039</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 48</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:20:11<br/><b>Satellites:</b> E02,E05,E09,E11,E36<br/><b>RMS residual:</b> 0.4046613852427729<br/><b>PDOP:</b> 5.221875395626298<br/><b>GDOP:</b> 6.030225492359898<br/><b>Velocity:</b> 5.221378413266458 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81199949,32.17221270,82.749</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 49</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:20:13<br/><b>Satellites:</b> E02,E05,E09,E11,E36<br/><b>RMS residual:</b> 4.531385317384861<br/><b>PDOP:</b> 5.2216678362008615<br/><b>GDOP:</b> 6.030124261395646<br/><b>Velocity:</b> 5.109049410911098 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81195654,32.17213138,80.167</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 50</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:20:15<br/><b>Satellites:</b> E02,E05,E09,E11,E36<br/><b>RMS residual:</b> 0.7844465506809534<br/><b>PDOP:</b> 5.221470816479177<br/><b>GDOP:</b> 6.030038151920296<br/><b>Velocity:</b> 5.947785820050086 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81191521,32.17203403,77.038</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 51</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:20:17<br/><b>Satellites:</b> E02,E05,E09,E11,E36<br/><b>RMS residual:</b> 0.5600029078627765<br/><b>PDOP:</b> 5.221269878729287<br/><b>GDOP:</b> 6.029946196132297<br/><b>Velocity:</b> 6.1842538761041235 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81187312,32.17193256,73.781</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 52</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:20:19<br/><b>Satellites:</b> E02,E05,E09,E11,E36<br/><b>RMS residual:</b> 3.057703414421284<br/><b>PDOP:</b> 5.221066942570698<br/><b>GDOP:</b> 6.02985127024847<br/><b>Velocity:</b> 6.538058651682556 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81182964,32.17182503,70.322</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 53</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:20:21<br/><b>Satellites:</b> E02,E06,E10,E25<br/><b>RMS residual:</b> 3.725290298461914e-09<br/><b>PDOP:</b> 5.39215187499459<br/><b>GDOP:</b> 6.069004882838819<br/><b>Velocity:</b> 6.33211783335817 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81178097,32.17172048,68.109</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 54</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:20:23<br/><b>Satellites:</b> E02,E06,E10,E25<br/><b>RMS residual:</b> 2.634178031930877e-09<br/><b>PDOP:</b> 5.38807425270976<br/><b>GDOP:</b> 6.064265599948552<br/><b>Velocity:</b> 6.345765907876548 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81174754,32.17161731,63.608</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 55</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:20:25<br/><b>Satellites:</b> E02,E06,E10,E25<br/><b>RMS residual:</b> 4.562530187486071e-09<br/><b>PDOP:</b> 5.384009504499432<br/><b>GDOP:</b> 6.0595421258445485<br/><b>Velocity:</b> 6.698484373819393 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81170849,32.17150683,59.630</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 56</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:20:27<br/><b>Satellites:</b> E02,E06,E10,E25<br/><b>RMS residual:</b> 1.862645149230957e-09<br/><b>PDOP:</b> 5.3799519834723695<br/><b>GDOP:</b> 6.054826139091152<br/><b>Velocity:</b> 6.852515172370315 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81166002,32.17139309,56.830</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 57</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:20:29<br/><b>Satellites:</b> E02,E06,E10,E25<br/><b>RMS residual:</b> 3.226196034939731e-09<br/><b>PDOP:</b> 5.375909071056236<br/><b>GDOP:</b> 6.0501281814160235<br/><b>Velocity:</b> 6.928994724291124 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81160908,32.17127849,54.096</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 58</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:20:31<br/><b>Satellites:</b> E02,E06,E10,E25<br/><b>RMS residual:</b> 1.862645149230957e-09<br/><b>PDOP:</b> 5.371872477414996<br/><b>GDOP:</b> 6.045436141108722<br/><b>Velocity:</b> 7.407117109987081 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81155862,32.17115530,50.905</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 59</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:20:33<br/><b>Satellites:</b> E02,E06,E10,E25<br/><b>RMS residual:</b> 2.634178031930877e-09<br/><b>PDOP:</b> 5.367848004338651<br/><b>GDOP:</b> 6.0407589434224604<br/><b>Velocity:</b> 6.916983395544286 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81150480,32.17103984,49.602</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 60</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:20:35<br/><b>Satellites:</b> E02,E06,E10,E25<br/><b>RMS residual:</b> 2.634178031930877e-09<br/><b>PDOP:</b> 5.363832953964791<br/><b>GDOP:</b> 6.036092323626919<br/><b>Velocity:</b> 7.572970446987957 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81145076,32.17091172,48.359</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 61</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:20:37<br/><b>Satellites:</b> E02,E06,E10,E25<br/><b>RMS residual:</b> 2.634178031930877e-09<br/><b>PDOP:</b> 5.35982598878933<br/><b>GDOP:</b> 6.031434239769188<br/><b>Velocity:</b> 7.232984783744328 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81139436,32.17079045,47.989</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 62</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:20:39<br/><b>Satellites:</b> E02,E06,E10,E25<br/><b>RMS residual:</b> 1.862645149230957e-09<br/><b>PDOP:</b> 5.3558339927710366<br/><b>GDOP:</b> 6.026795084827505<br/><b>Velocity:</b> 7.921349425405958 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81132564,32.17066087,49.571</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 63</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:20:41<br/><b>Satellites:</b> E02,E06,E10,E25<br/><b>RMS residual:</b> 2.634178031930877e-09<br/><b>PDOP:</b> 5.351853010098541<br/><b>GDOP:</b> 6.022168829759703<br/><b>Velocity:</b> 7.94956076072242 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81124910,32.17053641,52.765</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 64</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:20:43<br/><b>Satellites:</b> E02,E06,E10,E25<br/><b>RMS residual:</b> 3.226196034939731e-09<br/><b>PDOP:</b> 5.347877402493178<br/><b>GDOP:</b> 6.017547345001402<br/><b>Velocity:</b> 8.075796000123425 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81117724,32.17040543,54.755</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 65</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:20:45<br/><b>Satellites:</b> E02,E06,E10,E25<br/><b>RMS residual:</b> 0.0<br/><b>PDOP:</b> 5.343913000497021<br/><b>GDOP:</b> 6.012939423022107<br/><b>Velocity:</b> 7.96594257525708 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81110840,32.17027496,56.294</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 66</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:20:47<br/><b>Satellites:</b> E02,E06,E10,E25<br/><b>RMS residual:</b> 0.0<br/><b>PDOP:</b> 5.339960010928511<br/><b>GDOP:</b> 6.008344663824128<br/><b>Velocity:</b> 7.929426227986335 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81104363,32.17014325,57.221</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 67</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:20:51<br/><b>Satellites:</b> E02,E05,E09,E25<br/><b>RMS residual:</b> 2.634178031930877e-09<br/><b>PDOP:</b> 5.838736178190777<br/><b>GDOP:</b> 7.01241481882917<br/><b>Velocity:</b> 7.866472089771383 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81092673,32.16987733,57.349</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 68</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:20:53<br/><b>Satellites:</b> E02,E05,E09,E11,E36<br/><b>RMS residual:</b> 1.4662295681332072<br/><b>PDOP:</b> 5.2176661180474895<br/><b>GDOP:</b> 6.028286085605328<br/><b>Velocity:</b> 8.116458554132786 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81085890,32.16974502,60.048</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 69</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:20:57<br/><b>Satellites:</b> E02,E06,E10,E25<br/><b>RMS residual:</b> 1.862645149230957e-09<br/><b>PDOP:</b> 5.320338447607758<br/><b>GDOP:</b> 5.985535904664528<br/><b>Velocity:</b> 7.197585126112678 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81075228,32.16949448,64.337</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 70</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:20:59<br/><b>Satellites:</b> E02,E06,E10,E25<br/><b>RMS residual:</b> 0.0<br/><b>PDOP:</b> 5.316444612517303<br/><b>GDOP:</b> 5.981009536085778<br/><b>Velocity:</b> 7.133070696425605 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81070854,32.16937207,65.837</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 71</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:21:01<br/><b>Satellites:</b> E02,E06,E10,E25<br/><b>RMS residual:</b> 0.0<br/><b>PDOP:</b> 5.312557333928413<br/><b>GDOP:</b> 5.976489765785084<br/><b>Velocity:</b> 6.189171313801293 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81068223,32.16926288,65.154</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 72</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:21:05<br/><b>Satellites:</b> E02,E05,E09,E11,E36<br/><b>RMS residual:</b> 2.2013760777756426<br/><b>PDOP:</b> 5.216487892155166<br/><b>GDOP:</b> 6.027756413690886<br/><b>Velocity:</b> 5.169519823324525 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81069035,32.16907250,61.137</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 73</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:21:07<br/><b>Satellites:</b> E02,E05,E09,E11,E25<br/><b>RMS residual:</b> 0.6668501532397639<br/><b>PDOP:</b> 4.546569383018498<br/><b>GDOP:</b> 5.276631756631632<br/><b>Velocity:</b> 4.103017935239163 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81072149,32.16900441,59.833</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 74</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:21:09<br/><b>Satellites:</b> E02,E06,E10,E12,E36<br/><b>RMS residual:</b> 5.137807284606339<br/><b>PDOP:</b> 3.192690214460288<br/><b>GDOP:</b> 3.4748499103649375<br/><b>Velocity:</b> 4.157618962336226 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81077750,32.16894651,59.921</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 75</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:21:11<br/><b>Satellites:</b> E02,E06,E10,E12,E36<br/><b>RMS residual:</b> 0.7599373299397889<br/><b>PDOP:</b> 3.1924076333727873<br/><b>GDOP:</b> 3.4743446041690715<br/><b>Velocity:</b> 4.001985911841559 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81083924,32.16889771,60.847</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 76</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:21:13<br/><b>Satellites:</b> E02,E06,E10,E12,E36<br/><b>RMS residual:</b> 0.22168133707544344<br/><b>PDOP:</b> 3.1921266392786127<br/><b>GDOP:</b> 3.473841081697361<br/><b>Velocity:</b> 4.591491103101358 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81092860,32.16886483,60.881</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 77</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:21:15<br/><b>Satellites:</b> E04,E09,E11,E25<br/><b>RMS residual:</b> 2.634178031930877e-09<br/><b>PDOP:</b> 7.02888485052151<br/><b>GDOP:</b> 8.058206443502053<br/><b>Velocity:</b> 5.328555980764099 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81103889,32.16884644,59.780</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 78</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:21:17<br/><b>Satellites:</b> E02,E06,E10,E12,E36<br/><b>RMS residual:</b> 5.215659332690001<br/><b>PDOP:</b> 3.1915707008090934<br/><b>GDOP:</b> 3.4728414699842434<br/><b>Velocity:</b> 5.453315675577158 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81115331,32.16883336,59.165</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 79</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:21:19<br/><b>Satellites:</b> E02,E06,E10,E12<br/><b>RMS residual:</b> 1.862645149230957e-09<br/><b>PDOP:</b> 4.991398245674139<br/><b>GDOP:</b> 5.255160606769035<br/><b>Velocity:</b> 5.318926554275729 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81126582,32.16882724,58.888</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 80</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:21:21<br/><b>Satellites:</b> E02,E05,E09,E11,E25<br/><b>RMS residual:</b> 0.3084044875592113<br/><b>PDOP:</b> 4.560770781315141<br/><b>GDOP:</b> 5.293321110615079<br/><b>Velocity:</b> 5.457602693708357 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81138143,32.16882920,59.338</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 81</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:21:23<br/><b>Satellites:</b> E02,E06,E10,E12,E36<br/><b>RMS residual:</b> 0.349847011374765<br/><b>PDOP:</b> 3.1907421842412504<br/><b>GDOP:</b> 3.471347308334259<br/><b>Velocity:</b> 6.644872490591421 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81152192,32.16882902,60.347</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 82</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:21:25<br/><b>Satellites:</b> E02,E06,E10,E12,E34<br/><b>RMS residual:</b> 15.841054457368815<br/><b>PDOP:</b> 4.78917535301345<br/><b>GDOP:</b> 4.9977555361523915<br/><b>Velocity:</b> 6.558797834482443 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81166074,32.16882970,61.139</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 83</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:21:27<br/><b>Satellites:</b> E02,E06,E10,E12,E36<br/><b>RMS residual:</b> 0.4150191620329768<br/><b>PDOP:</b> 3.1901999400910475<br/><b>GDOP:</b> 3.4703631083286<br/><b>Velocity:</b> 5.604179820382236 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81177901,32.16883722,61.835</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 84</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:21:29<br/><b>Satellites:</b> E02,E06,E10,E12,E36<br/><b>RMS residual:</b> 0.26543914976469973<br/><b>PDOP:</b> 3.189930743094577<br/><b>GDOP:</b> 3.469873199457238<br/><b>Velocity:</b> 5.880178936003351 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81190319,32.16883438,62.841</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 85</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:21:31<br/><b>Satellites:</b> E02,E06,E10,E12,E36<br/><b>RMS residual:</b> 1.2508791483159045<br/><b>PDOP:</b> 3.1896640489274404<br/><b>GDOP:</b> 3.4693863389796884<br/><b>Velocity:</b> 5.470307729026598 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81201892,32.16883973,62.402</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 86</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:21:33<br/><b>Satellites:</b> E02,E05,E09,E12<br/><b>RMS residual:</b> 3.226196034939731e-09<br/><b>PDOP:</b> 2.691302346823751<br/><b>GDOP:</b> 2.9164119700861733<br/><b>Velocity:</b> 5.522421023119738 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81213576,32.16884298,61.761</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 87</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:21:37<br/><b>Satellites:</b> E02,E06,E10,E12,E36<br/><b>RMS residual:</b> 0.4849848065986307<br/><b>PDOP:</b> 3.1888720713379493<br/><b>GDOP:</b> 3.467934995150753<br/><b>Velocity:</b> 5.368517580560345 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81236632,32.16883054,61.307</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 88</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:21:39<br/><b>Satellites:</b> E02,E06,E10,E12,E36<br/><b>RMS residual:</b> 2.3313477787954215<br/><b>PDOP:</b> 3.1886108885857394<br/><b>GDOP:</b> 3.467454470207768<br/><b>Velocity:</b> 5.646426923535493 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81248512,32.16881885,60.779</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 89</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:21:41<br/><b>Satellites:</b> E02,E06,E10,E12,E36<br/><b>RMS residual:</b> 2.580282109807836<br/><b>PDOP:</b> 3.188351843677106<br/><b>GDOP:</b> 3.4669764790324358<br/><b>Velocity:</b> 5.733490549842575 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81260638,32.16881137,60.735</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 90</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:21:43<br/><b>Satellites:</b> E02,E06,E10,E12,E36<br/><b>RMS residual:</b> 2.8598492139935745<br/><b>PDOP:</b> 3.1880949590683514<br/><b>GDOP:</b> 3.4665010536249397<br/><b>Velocity:</b> 5.926590416887947 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81273173,32.16880783,59.996</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 91</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:21:45<br/><b>Satellites:</b> E02,E06,E10,E12,E34<br/><b>RMS residual:</b> 1.2675272988505673<br/><b>PDOP:</b> 4.805057928637657<br/><b>GDOP:</b> 5.013030930756809<br/><b>Velocity:</b> 4.756377221801913 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81283147,32.16880567,58.600</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 92</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:21:47<br/><b>Satellites:</b> E02,E06,E10,E12,E36<br/><b>RMS residual:</b> 0.2628434428769209<br/><b>PDOP:</b> 3.1875824809827726<br/><b>GDOP:</b> 3.465551277300391<br/><b>Velocity:</b> 4.72114230235501 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81293052,32.16880357,57.256</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 93</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:21:49<br/><b>Satellites:</b> E02,E06,E10,E12,E36<br/><b>RMS residual:</b> 3.482285625108931<br/><b>PDOP:</b> 3.187329544991984<br/><b>GDOP:</b> 3.465080363988779<br/><b>Velocity:</b> 4.279743257734896 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81302108,32.16879897,57.042</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 94</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:21:53<br/><b>Satellites:</b> E02,E06,E10,E25<br/><b>RMS residual:</b> 2.634178031930877e-09<br/><b>PDOP:</b> 5.214911050850719<br/><b>GDOP:</b> 5.8629550516065025<br/><b>Velocity:</b> 2.9741965062190823 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81315576,32.16879691,57.791</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 95</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:21:55<br/><b>Satellites:</b> E02,E06,E10,E25,E36<br/><b>RMS residual:</b> 3.023682366946645<br/><b>PDOP:</b> 4.067347233561191<br/><b>GDOP:</b> 4.660786493769893<br/><b>Velocity:</b> 2.4954674145386657 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81320816,32.16879740,58.484</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 96</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:21:57<br/><b>Satellites:</b> E02,E06,E10,E25,E36<br/><b>RMS residual:</b> 3.492455855159217<br/><b>PDOP:</b> 4.066063169196779<br/><b>GDOP:</b> 4.659206898606027<br/><b>Velocity:</b> 1.5855969876174987 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81324118,32.16880254,58.664</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 97</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:21:59<br/><b>Satellites:</b> E02,E06,E10,E25,E36<br/><b>RMS residual:</b> 0.6035206655105565<br/><b>PDOP:</b> 4.064793835315991<br/><b>GDOP:</b> 4.657647557370357<br/><b>Velocity:</b> 1.2601507466913389 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81326681,32.16880494,59.325</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 98</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:22:01<br/><b>Satellites:</b> E02,E06,E10,E25<br/><b>RMS residual:</b> 1.862645149230957e-09<br/><b>PDOP:</b> 5.2004510633148255<br/><b>GDOP:</b> 5.846137163673805<br/><b>Velocity:</b> 0.8665385370770323 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81327928,32.16881558,59.802</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 99</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:22:03<br/><b>Satellites:</b> E02,E06,E10,E25,E36<br/><b>RMS residual:</b> 3.231138437949956<br/><b>PDOP:</b> 4.062259054212216<br/><b>GDOP:</b> 4.654531822598448<br/><b>Velocity:</b> 0.5118277994832084 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81328888,32.16881983,59.877</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 100</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:22:07<br/><b>Satellites:</b> E02,E06,E10,E25,E36<br/><b>RMS residual:</b> 1.083904474363449<br/><b>PDOP:</b> 4.059726898586502<br/><b>GDOP:</b> 4.651416532970926<br/><b>Velocity:</b> 0.15373822391650113 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81329235,32.16882263,60.039</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 101</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:22:09<br/><b>Satellites:</b> E02,E06,E10,E25,E36<br/><b>RMS residual:</b> 1.2701243417676402<br/><b>PDOP:</b> 4.058467090382583<br/><b>GDOP:</b> 4.649866408267369<br/><b>Velocity:</b> 0.24047473308164433 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81329350,32.16881859,59.902</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 102</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:22:11<br/><b>Satellites:</b> E02,E06,E10,E12,E36<br/><b>RMS residual:</b> 0.06300367280580867<br/><b>PDOP:</b> 3.184654520560894<br/><b>GDOP:</b> 3.460024378368111<br/><b>Velocity:</b> 0.336873670965274 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81329590,32.16881302,59.755</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 103</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:22:13<br/><b>Satellites:</b> E02,E06,E10,E12,E36<br/><b>RMS residual:</b> 3.151248672795701<br/><b>PDOP:</b> 3.184422620945956<br/><b>GDOP:</b> 3.4595780871722286<br/><b>Velocity:</b> 0.6296667803047709 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81330038,32.16880501,58.969</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 104</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:22:15<br/><b>Satellites:</b> E02,E06,E10,E25,E36<br/><b>RMS residual:</b> 0.6505189110467109<br/><b>PDOP:</b> 4.054713685802247<br/><b>GDOP:</b> 4.6452495300337056<br/><b>Velocity:</b> 0.9245748265480365 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81329933,32.16879021,58.122</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 105</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:22:17<br/><b>Satellites:</b> E02,E06,E10,E25,E36<br/><b>RMS residual:</b> 1.0158567016557671<br/><b>PDOP:</b> 4.053469574022131<br/><b>GDOP:</b> 4.64371897172932<br/><b>Velocity:</b> 0.8955417664500214 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81330119,32.16877457,57.711</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 106</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:22:19<br/><b>Satellites:</b> E02,E06,E10,E25,E36<br/><b>RMS residual:</b> 3.486790387750016<br/><b>PDOP:</b> 4.052223106816245<br/><b>GDOP:</b> 4.642184036564086<br/><b>Velocity:</b> 1.0235168337699907 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81330600,32.16875657,57.704</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 107</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:22:21<br/><b>Satellites:</b> E02,E06,E10,E25<br/><b>RMS residual:</b> 3.725290298461914e-09<br/><b>PDOP:</b> 5.1649369346181295<br/><b>GDOP:</b> 5.804829234433908<br/><b>Velocity:</b> 1.2002886352587285 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81331014,32.16873536,57.421</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 108</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:22:23<br/><b>Satellites:</b> E02,E06,E10,E25<br/><b>RMS residual:</b> 1.862645149230957e-09<br/><b>PDOP:</b> 5.161434764130749<br/><b>GDOP:</b> 5.800755384716639<br/><b>Velocity:</b> 1.6579173995895222 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81331013,32.16870553,57.202</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 109</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:22:25<br/><b>Satellites:</b> E02,E06,E10,E25<br/><b>RMS residual:</b> 1.862645149230957e-09<br/><b>PDOP:</b> 5.157940390300067<br/><b>GDOP:</b> 5.796690485494502<br/><b>Velocity:</b> 1.7829179220912466 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81330480,32.16867370,57.132</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 110</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:22:29<br/><b>Satellites:</b> E02,E06,E11,E36<br/><b>RMS residual:</b> 2.634178031930877e-09<br/><b>PDOP:</b> 12.640171199693626<br/><b>GDOP:</b> 14.8221585791131<br/><b>Velocity:</b> 0.8802862045563249 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81329946,32.16864240,57.445</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 111</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:22:31<br/><b>Satellites:</b> E02,E06,E10,E25<br/><b>RMS residual:</b> 4.16500117164066e-09<br/><b>PDOP:</b> 5.147513029120425<br/><b>GDOP:</b> 5.784560465584235<br/><b>Velocity:</b> 1.871370608477199 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81329254,32.16860958,58.026</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 112</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:22:33<br/><b>Satellites:</b> E02,E06,E10,E25,E36<br/><b>RMS residual:</b> 4.337261743564876<br/><b>PDOP:</b> 4.043602984322064<br/><b>GDOP:</b> 4.631567884160429<br/><b>Velocity:</b> 2.0496156051952883 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81328436,32.16857344,58.406</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 113</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:22:35<br/><b>Satellites:</b> E02,E06,E10,E25<br/><b>RMS residual:</b> 0.0<br/><b>PDOP:</b> 5.140594659954797<br/><b>GDOP:</b> 5.776509094771668<br/><b>Velocity:</b> 1.0343274194394556 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81327931,32.16855614,59.016</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 114</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:22:37<br/><b>Satellites:</b> E02,E06,E10,E36<br/><b>RMS residual:</b> 2.634178031930877e-09<br/><b>PDOP:</b> 4.4878782673798305<br/><b>GDOP:</b> 5.09867719623573<br/><b>Velocity:</b> 1.2382703880683221 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81327382,32.16853568,59.863</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 115</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:22:39<br/><b>Satellites:</b> E02,E06,E10,E36<br/><b>RMS residual:</b> 2.634178031930877e-09<br/><b>PDOP:</b> 4.486535951864567<br/><b>GDOP:</b> 5.09688562615015<br/><b>Velocity:</b> 1.0356303365222168 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81327021,32.16851785,60.377</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Point 116</name>
+            <description><![CDATA[<b>Time:</b> 2026-03-21 15:22:43<br/><b>Satellites:</b> E02,E06,E10,E36<br/><b>RMS residual:</b> 4.16500117164066e-09<br/><b>PDOP:</b> 4.483852899360077<br/><b>GDOP:</b> 5.093301514580622<br/><b>Velocity:</b> 0.6058295180600827 m/s]]></description>
+            <styleUrl>#red_point</styleUrl>
+            <Point>
+                <coordinates>34.81326578,32.16849658,60.746</coordinates>
+            </Point>
+        </Placemark>
+    </Folder>
+</Document>
+</kml>
