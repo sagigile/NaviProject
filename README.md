@@ -1,5 +1,13 @@
 # README — RINEX Navigation Exercise
 
+## Results
+
+<img width="646" height="726" alt="image" src="https://github.com/user-attachments/assets/efc9f18a-9d33-44cb-9504-e88ef96d4700" />
+
+<img width="1533" height="522" alt="image" src="https://github.com/user-attachments/assets/bd786580-0c21-4044-9469-e6d88588be0c" />
+
+
+
 ## Purpose of the Code
 
 The code computes a GNSS track from RINEX files:
